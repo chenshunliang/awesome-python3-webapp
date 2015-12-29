@@ -1,4 +1,5 @@
 import logging
+import mysqlhelper
 
 
 class ModelMetaclass(type):
@@ -64,6 +65,13 @@ class Model(dict, metaclass=ModelMetaclass):
                 logging.debug('using default value for %s:%s' % key, str(value))
                 setattr(self, key, value)
         return value
+
+    @classmethod
+    async def find(self, pk):
+        rs = await mysqlhelper.select('%s where `%s`=?' % (self.__select__, self.__primary_key__), [pk], 1)
+        if len(rs) == 0:
+            return None
+        return self(**rs[0])
 
 
 class Field(object):
