@@ -32,8 +32,9 @@ class ModelMetaclass(type):
         attrs['__fields__'] = fields  # 除主键外的属性名
         # 构造默认的SELECT, INSERT, UPDATE和DELETE语句:
         attrs['__select__'] = 'select `%s`, %s from `%s`' % (primaryKey, ', '.join(escaped_fields), tableName)
+        # TODO valus组织
         attrs['__insert__'] = 'insert into `%s` (%s, `%s`) values (%s)' % (
-            tableName, ', '.join(escaped_fields), primaryKey, create_args_string(len(escaped_fields) + 1))
+            tableName, ', '.join(escaped_fields), primaryKey, '')
         attrs['__update__'] = 'update `%s` set %s where `%s`=?' % (
             tableName, ', '.join(map(lambda f: '`%s`=?' % (mappings.get(f).name or f), fields)), primaryKey)
         attrs['__delete__'] = 'delete from `%s` where `%s`=?' % (tableName, primaryKey)
@@ -73,6 +74,21 @@ class Model(dict, metaclass=ModelMetaclass):
             return None
         return self(**rs[0])
 
+    @classmethod
+    async def findAll(self):
+        rs = await mysqlhelper.select('%s' % self.__select__, None)
+        if len(rs) == 0:
+            return None
+        return self(**rs[0])
+
+    @classmethod
+    async def save(self):
+        args = list(map(self.getValueOrDefault, self.__fields__))
+        args.append(self.getValueOrDefault(self.__primary_key__))
+        rows = await mysqlhelper.execute(self.__insert__, args)
+        if rows != 1:
+            logging.warn('failed to insert record: affected rows: %s' % rows)
+
 
 class Field(object):
     def __init__(self, name, column_type, primary_key, default):
@@ -86,5 +102,10 @@ class Field(object):
 
 
 class StringField(Field):
-    def __init__(self, name=None, primary_key=False, default=None, ddl='varchar(100)'):
+    def __init__(self, name=None, primary_key=False, default=None, ddl='varchar(200)'):
+        super().__init__(name, ddl, primary_key, default)
+
+
+class IntegerField(Field):
+    def __init__(self, name=None, primary_key=False, default=None, ddl='int(11)'):
         super().__init__(name, ddl, primary_key, default)

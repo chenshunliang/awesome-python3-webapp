@@ -27,6 +27,7 @@ async def create_pool(loop, **kw):
 
 
 async def select(sql, args, size=None):
+    log(sql, args)
     global __pool
     with (await __pool) as conn:
         cur = await conn.cursor(aiomysql.DictCursor)
@@ -41,6 +42,7 @@ async def select(sql, args, size=None):
 
 
 async def execute(sql, args):
+    log(sql, args)
     with(await __pool)as conn:
         try:
             cur = await conn.cursor()
@@ -50,3 +52,7 @@ async def execute(sql, args):
         except BaseException as e:
             raise
         return affected
+
+
+def log(sql, args=()):
+    logging.info('SQL: %s' % sql)

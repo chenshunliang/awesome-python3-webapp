@@ -37,5 +37,22 @@
 # # 执行coroutine
 # loop.run_until_complete(hello())
 # loop.close()
-import objrelationmap
+from objrelationmap import Model, StringField, IntegerField
+import asyncio
+import mysqlhelper
 
+
+class User(Model):
+    __table__ = 'user'
+
+    id = IntegerField(primary_key=True)
+    name = StringField()
+
+# user = User(id=3, name='test')
+# f = user.findAll()
+# f.send(None)
+
+# loop = asyncio.get_event_loop()
+# mysqlhelper.create_pool(loop, user='chensl', password='123456', db='test')
+# loop.run_until_complete()
+# loop.close()
