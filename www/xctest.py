@@ -48,8 +48,9 @@ class User(Model):
     id = IntegerField(primary_key=True)
     name = StringField()
 
-# user = User(id=3, name='test')
-# f = user.findAll()
+user = User(id=3, name='test')
+f = user.findAll()
+
 # f.send(None)
 
 # loop = asyncio.get_event_loop()

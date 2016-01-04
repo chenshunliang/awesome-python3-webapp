@@ -1,8 +1,8 @@
 # -*- coding:utf-8 -*-
 
 
-import logging, mysqlhelper, xctest
-import asyncio, json, os
+import logging, mysqlhelper, objrelationmap
+import asyncio, json, os,xctest
 from datetime import datetime
 from aiohttp import web
 
@@ -19,9 +19,8 @@ async def init(loop):
     app.router.add_route('GET', '/', index)
     srv = await loop.create_server(app.make_handler(), '127.0.0.1', 9000)
     logging.info('server started at http://127.0.0.1:9000')
-    user = xctest.User(id=3, name='test')
+    user =xctest.User(id=3, name='test')
     f = user.findAll()
-    f.send(None)
     return srv
 
 

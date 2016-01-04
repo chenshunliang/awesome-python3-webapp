@@ -78,6 +78,7 @@ class Model(dict, metaclass=ModelMetaclass):
     async def findAll(self):
         rs = await mysqlhelper.select('%s' % self.__select__, None)
         if len(rs) == 0:
+            print('findALL:Nothing....')
             return None
         return self(**rs[0])
 
@@ -88,6 +89,10 @@ class Model(dict, metaclass=ModelMetaclass):
         rows = await mysqlhelper.execute(self.__insert__, args)
         if rows != 1:
             logging.warn('failed to insert record: affected rows: %s' % rows)
+
+    @classmethod
+    async def insert(self):
+        pass
 
 
 class Field(object):
