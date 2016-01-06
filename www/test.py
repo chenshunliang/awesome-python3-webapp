@@ -16,7 +16,7 @@ import inspect
 # loop.run_until_complete(test(loop))
 # loop.run_forever()
 
-def fun(name, chen=1, *args, **kw):
+def fun(name, chen=1, *args, a, **kw):
     pass
 
 
@@ -28,3 +28,4 @@ print(sig is tuple)
 for k, v in sig.parameters.items():
     print(v.kind)
 print('....')
+print(**'a')
