@@ -2,6 +2,7 @@ import orm
 from models import User, Blog, Comment
 import asyncio
 import inspect
+from urllib import parse
 
 
 # async def test(loop):
@@ -28,4 +29,10 @@ print(sig is tuple)
 for k, v in sig.parameters.items():
     print(v.kind)
 print('....')
-print(**'a')
+# print(**'a')
+
+qsdata = "test=test&test2=test2&test3=test3"
+qs = parse.parse_qs(qsdata, keep_blank_values=True, strict_parsing=True)
+print(qs)
+
+print(type(('12,qw')))
