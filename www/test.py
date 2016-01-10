@@ -3,7 +3,7 @@ from models import User, Blog, Comment
 import asyncio
 import inspect
 from urllib import parse
-import time
+import time, os
 
 
 # async def test(loop):
@@ -38,3 +38,4 @@ print(qs)
 
 print(type(('12,qw')))
 print(time.time())
+print(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'))
