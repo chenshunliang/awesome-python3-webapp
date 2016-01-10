@@ -3,6 +3,7 @@ from models import User, Blog, Comment
 import asyncio
 import inspect
 from urllib import parse
+import time
 
 
 # async def test(loop):
@@ -36,3 +37,4 @@ qs = parse.parse_qs(qsdata, keep_blank_values=True, strict_parsing=True)
 print(qs)
 
 print(type(('12,qw')))
+print(time.time())
