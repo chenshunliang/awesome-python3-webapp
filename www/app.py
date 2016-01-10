@@ -38,7 +38,7 @@ def init_jinja2(app, **kw):
     logging.info('set jinja2 template path: %s' % path)
     env = Environment(loader=FileSystemLoader(path), **options)
     filters = kw.get('filters', None)
-    if filters is None:
+    if filters is not None:
         for name, f in filters.items():
             env.filters[name] = f
     app['__templating__'] = env
