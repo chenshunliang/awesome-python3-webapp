@@ -52,7 +52,7 @@ def get_required_kw_args(fn):
     args = []
     params = inspect.signature(fn).parameters
     for name, param in params.items():
-        if param.kind == inspect.Parameter.KEYWORD_ONLY and param.defaut == inspect.Parameter.empty:
+        if param.kind == inspect.Parameter.KEYWORD_ONLY and param.default == inspect.Parameter.empty:
             args.append(name)
     return tuple(args)
 
@@ -170,7 +170,7 @@ def add_route(app, fn):
         fn = asyncio.coroutine(fn)
     logging.info(
             'add route %s %s => %s(%s)' % (
-            method, path, fn.__name__, ', '.join(inspect.signature(fn).parameters.keys())))
+                method, path, fn.__name__, ', '.join(inspect.signature(fn).parameters.keys())))
     app.router.add_route(method, path, RequestHandler(app, fn))
 
 
