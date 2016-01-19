@@ -19,24 +19,28 @@
                 methods: {
                     submit: function (event) {
                         event.stopPropagation();
-                        var formData = $('#reg');
-                        if (!this.name.trim())
-                            return formData.showFormError('请输入名字');
-                        if (!validateEmail(this.email.trim().toLowerCase()))
-                            return formData.showFormError('请输入正确的email地址');
-                        if (this.passwd.length < 6)
-                            return formData.showFormError('密码长度必须大于6位');
-                        if (this.passwd != this.passwdconfirm)
-                            return formData.showFormError('两次密码输入不同');
+                        var $form = $('#reg');
+                        if (!this.name.trim()) {
+                            return $form.showFormError('请输入名字');
+                        }
+                        if (!validateEmail(this.email.trim().toLowerCase())) {
+                            return $form.showFormError('请输入正确的email地址');
+                        }
+                        if (this.passwd.length < 6) {
+                            return $form.showFormError('密码长度必须大于6位');
+                        }
+                        if (this.passwd != this.passwdconfirm) {
+                            return $form.showFormError('两次密码输入不同');
+                        }
                         var email = this.email.toLowerCase();
-                        formData.postJson('api/users', {
+                        $form.postJSON('api/users', {
                             name: this.name.trim(),
                             email: email,
-                            passwd: CryptoJS.SHA1(email + ':' + this.password1).toString()
+                            passwd: CryptoJS.SHA1(email + ':' + this.passwd).toString()
 
                         }, function (err, r) {
                             if (err)
-                                return formData.showFormError(err);
+                                return alert(err);
                             return location.assign('/')
                         });
                     }

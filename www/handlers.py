@@ -97,6 +97,11 @@ def register():
     return {'__template__': 'register.html'}
 
 
+@get('/signin')
+def signin():
+    return {'__template__': 'signin.html'}
+
+
 @post('/api/users')
 async def api_register_user(*, email, name, passwd):
     if not name or not name.strip():
@@ -119,3 +124,26 @@ async def api_register_user(*, email, name, passwd):
     r.content_type = 'application/json'
     r.body = json.dump(user, ensure_ascii=False).encode('utf-8')
     return r
+
+
+@post('/api/authenticate')
+async def authenticate(*, email, passwd):
+    if not email:
+        raise APIValueError('email', 'Invalid email')
+    if not passwd:
+        raise APIValueError('passwd', 'Invalid passwd')
+    users = await User.findAll('email=?', [email])
+    if len(users) == 0:
+        raise APIValueError('email', 'email not exist')
+    user = users[0]
+    sha1 = hashlib.sha1
+    sha1.update(user.id.encode('utf-8'))
+    sha1.update(b':')
+    sha1.update(passwd.encode('utf-8'))
+    if user.passwd != sha1.hexdigest():
+        raise APIValueError('passwd', 'Invalid passwd')
+    r = web.Response()
+    r.set_cookie(COOKIE_NAME, user2cookie(user, 86400), max_age=86400, httponly=True)
+    user.passwd = '******'
+    r.content_type = 'application/json'
+    r.body = json.dumps(user, ensure_ascii=False).encode('utf-8')
