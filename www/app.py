@@ -23,16 +23,15 @@ from coreweb import add_routes, add_static
 from handlers import cookie2user, COOKIE_NAME
 
 
-
 def init_jinja2(app, **kw):
     logging.info('init jinja2...')
     options = dict(
-            autoescape=kw.get('autoescape', True),
-            block_start_string=kw.get('block_start_string', '{%'),
-            block_end_string=kw.get('block_end_string', '%}'),
-            variable_start_string=kw.get('variable_start_string', '{{'),
-            variable_end_string=kw.get('variable_end_string', '}}'),
-            auto_reload=kw.get('auto_reload', True)
+        autoescape=kw.get('autoescape', True),
+        block_start_string=kw.get('block_start_string', '{%'),
+        block_end_string=kw.get('block_end_string', '%}'),
+        variable_start_string=kw.get('variable_start_string', '{{'),
+        variable_end_string=kw.get('variable_end_string', '}}'),
+        auto_reload=kw.get('auto_reload', True)
     )
     path = kw.get('path', None)
     if path is None:
@@ -88,7 +87,7 @@ async def response_factory(app, handle):
             template = r.get('__template__')
             if template is None:
                 resp = web.Response(
-                        body=json.dumps(r, ensure_ascii=False, default=lambda o: o.__dict__).encode('utf-8'))
+                    body=json.dumps(r, ensure_ascii=False, default=lambda o: o.__dict__).encode('utf-8'))
                 resp.content_type = 'application/json;charset=utf-8'
                 return resp
             else:
@@ -118,6 +117,8 @@ async def auth_factory(app, handle):
             if user:
                 logging.info('set current user:%s' % user.email)
                 request.__user__ = user
+        if request.path.startswith('/manage/') and (request.__user__ is None or not request.__user__.admin):
+            return web.HTTPFound('/signin')
         return await handle(request)
 
     return auth
