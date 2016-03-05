@@ -15,9 +15,10 @@ from aiohttp import web
 
 
 def get(path):
-    '''
+    """
     define decorator @get('/path')
-    '''
+    :param path:
+    """
 
     def decorator(func):
         @functools.wraps(func)
@@ -32,9 +33,10 @@ def get(path):
 
 
 def post(path):
-    '''
+    """
     define decorator @get('/path')
-    '''
+    :param path:
+    """
 
     def decorator(func):
         @functools.wraps(func)
@@ -91,7 +93,7 @@ def has_request_arg(fn):
         if found and (
                             param.kind != inspect.Parameter.VAR_POSITIONAL and param.kind != inspect.Parameter.KEYWORD_ONLY and param.kind != inspect.Parameter.VAR_KEYWORD):
             raise ValueError(
-                    'request parameter must be the last named parameter in function:%s%s' % (fn.__name__, str(sig)))
+                'request parameter must be the last named parameter in function:%s%s' % (fn.__name__, str(sig)))
     return found
 
 
@@ -170,8 +172,8 @@ def add_route(app, fn):
     if not asyncio.iscoroutinefunction(fn) and not inspect.isgeneratorfunction(fn):
         fn = asyncio.coroutine(fn)
     logging.info(
-            'add route %s %s => %s(%s)' % (
-                method, path, fn.__name__, ', '.join(inspect.signature(fn).parameters.keys())))
+        'add route %s %s => %s(%s)' % (
+            method, path, fn.__name__, ', '.join(inspect.signature(fn).parameters.keys())))
     app.router.add_route(method, path, RequestHandler(app, fn))
 
 

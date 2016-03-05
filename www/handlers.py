@@ -42,9 +42,10 @@ def text2html(text):
 
 
 def user2cookie(user, max_age):
-    '''
+    """
     Generate cookie str by user.
-    '''
+    :type user: object
+    """
     # build cookie string by: id-expires-sha1
     expires = str(int(time.time() + max_age))
     s = '%s-%s-%s-%s' % (user.id, user.passwd, expires, _COOKIE_KEY)
@@ -53,9 +54,9 @@ def user2cookie(user, max_age):
 
 
 async def cookie2user(cookie_str):
-    '''
+    """
     Parse cookie and load user if cookie is valid.
-    '''
+    """
     if not cookie_str:
         return None
     try:
