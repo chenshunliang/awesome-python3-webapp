@@ -1,0 +1,36 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Child	.\test.py	/^class Child(Test):$/;"	c
+Template	.\y.py	/^    from string import Template$/;"	i
+Test	.\test.py	/^class Test(object):$/;"	c
+Timer	.\y.py	/^    from timeit import Timer$/;"	i
+__init__	.\test.py	/^    def __init__(self):$/;"	m	class:Child
+__init__	.\test.py	/^    def __init__(self):$/;"	m	class:Test
+a	.\test.py	/^a = 10$/;"	v
+a	.\test.py	/^a = Child()$/;"	v
+countNum	.\y.py	/^def countNum(length):$/;"	f
+doctest	.\y.py	/^    import doctest$/;"	i
+f	.\test.py	/^f = lambda x, y: x * y$/;"	v
+fileinput	.\mytest_file.py	/^import fileinput$/;"	i
+getHtml	.\creeper.py	/^def getHtml(url):$/;"	f
+l	.\test.py	/^l = [1, 2, 3, 4, 5, 6, 7, 8, 9]$/;"	v
+l	.\test.py	/^l = filter(lambda x: x > 5, l)$/;"	v
+pr	.\y.py	/^def pr(value):$/;"	f
+re	.\creeper.py	/^import re$/;"	i
+readfile	.\y.py	/^def readfile(path):$/;"	f
+readtext	.\mytest_file.py	/^def readtext(url):$/;"	f
+repeater	.\y.py	/^def repeater(value):$/;"	f
+request	.\webtest.py	/^import urllib.request$/;"	i
+s	.\webtest.py	/^s = w.decode('utf8')$/;"	v
+sys	.\y.py	/^    import sys$/;"	i
+t	.\y.py	/^    t = Template('im $name , age is $age')$/;"	v
+test	.\test.py	/^def test(x):$/;"	f
+time	.\test.py	/^import time$/;"	i
+urllib	.\creeper.py	/^import urllib$/;"	i
+urllib	.\webtest.py	/^import urllib.request$/;"	i
+w	.\webtest.py	/^w = webpage.read()$/;"	v
+webpage	.\webtest.py	/^webpage = urllib.request.urlopen('http:\/\/www.badu.com')$/;"	v

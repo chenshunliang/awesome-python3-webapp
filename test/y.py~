@@ -2,7 +2,7 @@ import urllib
 
 def countNum(length):
     while length > 1:
-	length = length - 1
+	length -= 1
 	a = (yield length)
 	print(a)
 
