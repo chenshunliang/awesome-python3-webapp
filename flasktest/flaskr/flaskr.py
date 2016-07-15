@@ -39,6 +39,7 @@ def show_entries():
     for (id, title, text) in resList:
         entries.append({'id': id, 'title': title, 'text': text})
     app.logger.debug(entries)
+    flash('data successful show')
     return render_template('show_entries.html', entries=entries)
 
 
