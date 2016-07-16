@@ -1,3 +1,4 @@
+import pdb
 def countNum(length):
     while length > 1:
 	length -= 1
@@ -27,8 +28,10 @@ if __name__ == '__main__':
     # print(pr('aaaaa'))
     # print('123'.zfill(6))
     # readfile(sys.argv[2])
+   ppdb.set_trace() ############################## Breakpoint ##############################
     print(Timer('a,b = 1,2').timeit())
     print(doctest.testmod())
+   tpdb.set_trace() ############################## Breakpoint ##############################
     t = Template('im $name , age is $age')
     print(t.substitute(name = 'chen',age = 19))
-     
+    import aaaaaa 
