@@ -3,15 +3,28 @@ from flask import Flask, request, session, g, redirect, url_for, abort, render_t
 from contextlib import closing
 
 # configuration
-HOST = '127.0.0.1'
-DATABASE = 'flasktest'
-DEBUG = True
-SECRET_KEY = '1234567890zxcvbnm'
-USERNAME = 'sa'
-PASSWORD = '1qazxsw@'
+# HOST = '127.0.0.1'
+# DATABASE = 'flasktest'
+# DEBUG = True
+# SECRET_KEY = '1234567890zxcvbnm'
+# USERNAME = 'sa'
+# PASSWORD = '1qazxsw@'
 
 app = Flask(__name__)
-app.config.from_object(__name__)
+app.config.from_pyfile('cfg.py')
+app.debug = True
+if app.debug:
+    import logging
+    from logging.handlers import TimedRotatingFileHandler
+    from logging import Formatter
+
+    file_handler = TimedRotatingFileHandler('/log/p.log')
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(Formatter(
+        '%(asctime)s %(levelname)s: %(message)s '
+        '[in %(pathname)s:%(lineno)d]'
+    ))
+    app.logger.addHandler(file_handler)
 
 
 # 连接sqllite数据库
@@ -79,17 +92,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.debug = True
-    if app.debug:
-        import logging
-        from logging.handlers import TimedRotatingFileHandler
-        from logging import Formatter
-
-        file_handler = TimedRotatingFileHandler('/log/p.log')
-        file_handler.setLevel(logging.DEBUG)
-        file_handler.setFormatter(Formatter(
-            '%(asctime)s %(levelname)s: %(message)s '
-            '[in %(pathname)s:%(lineno)d]'
-        ))
-        app.logger.addHandler(file_handler)
     app.run()
