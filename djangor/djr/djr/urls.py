@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from djr.dtest import views as test_view
+from dtest import views as test_view
 
 urlpatterns = [
     url(r'^$', test_view.index),
+    url(r'^add/$', test_view.add),
+    url(r'^add/(\d+)/(\d+)$', test_view.add2, name='add2'),
     url(r'^admin/', admin.site.urls),
 ]
