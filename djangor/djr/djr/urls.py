@@ -23,4 +23,6 @@ urlpatterns = [
     url(r'^add/$', test_view.add),
     url(r'^add/(\d+)/(\d+)$', test_view.add2, name='add2'),
     url(r'^admin/', admin.site.urls),
+    url(r'^create/(\w+)/(\d+)$', test_view.create_peo),
+    url(r'^get_peo/$', test_view.get_all)
 ]
