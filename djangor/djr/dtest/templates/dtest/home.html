@@ -1,0 +1,18 @@
+{% extends 'dtest/base.html' %}
+
+{% block title %} 测试home {% endblock %}
+
+{% block content %}
+
+<strong>我是home页</strong>
+{{ string }}
+<ul>
+    {% for i in colors %}
+    <li>{{ i }}</li>
+    {% endfor %}
+</ul>
+
+{% url 'home2' %}
+
+{{ request.path }}
+{% endblock %}

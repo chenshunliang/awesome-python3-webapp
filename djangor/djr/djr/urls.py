@@ -19,7 +19,7 @@ from django.contrib import admin
 from dtest import views as test_view
 
 urlpatterns = [
-    url(r'^$', test_view.index),
+    url(r'^homeeee/$', test_view.home, name='home2'),
     url(r'^add/$', test_view.add),
     url(r'^add/(\d+)/(\d+)$', test_view.add2, name='add2'),
     url(r'^admin/', admin.site.urls),
