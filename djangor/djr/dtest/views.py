@@ -3,6 +3,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from dtest.models import Person
+from .forms import AddForm
 
 
 # Create your views here.
@@ -41,5 +42,17 @@ def get_all(request):
     pList = Person.objects.all()
     s = ''
     for p in pList:
-        s += 'name:{0},age:{1}.\r'.format(p.name, len(str(p.age)))
+        s += 'name:{0},age:{1}.\r'.format(p.name, p.age)
     return HttpResponse(s)
+
+
+def add_user(request):
+    if request.method == 'POST':
+        form = AddForm(request.POST)
+        if form.is_valid():
+            Person.objects.get_or_create(name=request.POST.get('name'), age=int(request.POST.get('age')))
+            return render(request, 'dtest/home.html', {'form': form})
+        else:
+            return render(request, 'dtest/home.html', {'form': form})
+    else:
+        return HttpResponse(status=403)

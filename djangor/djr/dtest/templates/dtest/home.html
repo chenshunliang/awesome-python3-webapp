@@ -15,4 +15,13 @@
 {% url 'home2' %}
 
 {{ request.path }}
+
+<form method="post" action="{% url 'post' %}">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="姓名">
+    <input type="text" name="age" placeholder="年龄">
+    <input type="submit" value="提交">
+</form>
+
+<strong>form:{{ form }}</strong>
 {% endblock %}
