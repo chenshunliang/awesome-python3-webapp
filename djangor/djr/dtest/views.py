@@ -5,6 +5,8 @@ from django.http import HttpResponse
 from dtest.models import Person
 from .forms import AddForm
 from django.views.decorators.cache import cache_page
+from django.http import JsonResponse
+from django.core import serializers
 
 
 # Create your views here.
@@ -58,4 +60,10 @@ def add_user(request):
         else:
             return render(request, 'dtest/home.html', {'form': form})
     else:
-        return HttpResponse(status=403)
+        return render(request, 'dtest/home.html')
+
+
+def ajax_json(request):
+    p = Person.objects.filter(name__contains='c')
+    # ser_p = serializers.serialize('json', p)
+    return JsonResponse([{'name': i.name, 'age': i.age} for i in p if i.age > 10], safe=False)

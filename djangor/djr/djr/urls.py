@@ -17,6 +17,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from dtest import views as test_view
+from django.contrib.sitemaps import GenericSitemap
+from django.contrib.sitemaps.views import sitemap
+
+sitemap = {
+
+}
 
 urlpatterns = [
     url(r'^homeeee/$', test_view.home, name='home2'),
@@ -27,4 +33,5 @@ urlpatterns = [
     url(r'^get_peo/$', test_view.get_all),
     url(r'^add_user/$', test_view.add_user, name='post'),
     url(r'^accounts/', include('users.urls')),
+    url(r'^get_json/$', test_view.ajax_json),
 ]
