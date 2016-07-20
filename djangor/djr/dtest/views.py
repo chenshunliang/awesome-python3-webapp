@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from dtest.models import Person
 from .forms import AddForm
+from django.views.decorators.cache import cache_page
 
 
 # Create your views here.
@@ -38,6 +39,8 @@ def create_peo(request, name, age):
     return HttpResponse(str('ok'))
 
 
+# 缓存5分钟
+@cache_page(60 * 5)
 def get_all(request):
     pList = Person.objects.all()
     s = ''

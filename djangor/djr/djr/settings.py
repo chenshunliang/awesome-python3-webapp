@@ -72,6 +72,17 @@ TEMPLATES = [
     },
 ]
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(BASE_DIR, 'django_cache'),
+        'TIMEOUT': 600,
+        'OPTIONS': {
+            'MAX_ENTRIES': 1000
+        }
+    }
+}
+
 WSGI_APPLICATION = 'djr.wsgi.application'
 
 # Database
@@ -82,23 +93,23 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
-    'mysql': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'csvt',
-        'USER': 'root',
-        'PASSWORD': '123456',
-        'HOST': '',
-        'PORT': '',
-    }
+    # 'mysql': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'csvt',
+    #     'USER': 'root',
+    #     'PASSWORD': '123456',
+    #     'HOST': '',
+    #     'PORT': '',
+    # }
 }
 
-DATABASE_ROUTERS = ['project_name.database_router.DatabaseAppsRouter']
-DATABASE_APPS_MAPPING = {
-    # example:
-    # 'app_name':'database_name',
-    'app1': 'db1',
-    'app2': 'db2',
-}
+# DATABASE_ROUTERS = ['project_name.database_router.DatabaseAppsRouter']
+# DATABASE_APPS_MAPPING = {
+#     # example:
+#     # 'app_name':'database_name',
+#     'app1': 'db1',
+#     'app2': 'db2',
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -172,14 +183,13 @@ USERS_PASSWORD_MAX_LENGTH = None
 USERS_CHECK_PASSWORD_COMPLEXITY = True
 
 USERS_SPAM_PROTECTION = False  # important!
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-EMAIL_USE_TLS = False
-EMAIL_HOST = 'smtp.163.com'
-EMAIL_PORT = 25
-EMAIL_HOST_USER = 'mail@163.com'
-EMAIL_HOST_PASSWORD = '1qazxsw@'
-DEFAULT_FROM_EMAIL = 'mail@163.com'
-
-DEFAULT_FROM_EMAIL = 'imchensl <imchensl@163.com>'
+#  EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#
+# EMAIL_USE_TLS = False
+# EMAIL_HOST = 'smtp.163.com'
+# EMAIL_PORT = 25
+# EMAIL_HOST_USER = 'mail@163.com'
+# EMAIL_HOST_PASSWORD = '1qazxsw@'
+# DEFAULT_FROM_EMAIL = 'mail@163.com'
+#
+# DEFAULT_FROM_EMAIL = 'imchensl <imchensl@163.com>'
