@@ -17,21 +17,26 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from dtest import views as test_view
+from news import views as new_view
 from django.contrib.sitemaps import GenericSitemap
 from django.contrib.sitemaps.views import sitemap
+from news.admin import admin as nadmin
+from dtest.admin import admin as dadmin
 
-sitemap = {
-
-}
+# sitemap = {
+#
+# }
 
 urlpatterns = [
     url(r'^homeeee/$', test_view.home, name='home2'),
     url(r'^add/$', test_view.add),
     url(r'^add/(\d+)/(\d+)$', test_view.add2, name='add2'),
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', include(nadmin.site.urls)),
+    # url(r'^dtest/admin/', include(dadmin.site.urls)),
     url(r'^create/(\w+)/(\d+)$', test_view.create_peo),
     url(r'^get_peo/$', test_view.get_all),
     url(r'^add_user/$', test_view.add_user, name='post'),
     # url(r'^accounts/', include('users.urls')),
     url(r'^get_json/$', test_view.ajax_json),
+    url(r'^add_info/$', new_view.add_info),
 ]
