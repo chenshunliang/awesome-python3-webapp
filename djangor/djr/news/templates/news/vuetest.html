@@ -4,19 +4,46 @@
     <meta charset="UTF-8">
     <title>test vue</title>
     <script src="../../static/js/vue.js"></script>
-    <!--<script src="../../static/js/jquery-1.8.2.min.js"></script>-->
+    <script src="../../static/js/jquery-1.8.2.min.js"></script>
+    <style type="text/css">
+        .red {
+            width: 100px;
+            height: 200px;
+            background-color: #cc1111;
+        }
+
+        .yellow {
+            width: 200px;
+            height: 100px;
+            background-color: #f5dd5d;
+        }
+    </style>
 </head>
 <body id="vuetest">
 <label>姓名：{% templatetag openvariable %} name {% templatetag closevariable %}</label>
 <input type="text" v-model="name" value="">
-<label>年龄：{% templatetag openvariable %} age {% templatetag closevariable %}</label>
+<label>年龄：{% templatetag openvariable %} age | capitalize {% templatetag closevariable %}</label>
 <input type="text" v-model="age" value="">
+<div onclick="changeColor()" class="{% templatetag openvariable %} class {% templatetag closevariable %}"></div>
+<label v-if="Math.random() > 0.5">abc</label>
+<label v-else>ABC</label>
 </body>
 </html>
 <script type="application/javascript">
     var da = JSON.parse('{{ u|safe }}');
     var vm = new Vue({
         data: da,
-        el: '#vuetest'
+        el: '#vuetest',
+        computed: {
+            age: function () {
+                return parseInt(this.name) + 1
+            }
+        }
     });
+    function changeColor() {
+        if (vm.class == 'red')
+            vm.class = 'yellow'
+        else
+            vm.class = 'red'
+    }
 </script>
