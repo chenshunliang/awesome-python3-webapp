@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from .models import Column, Article
 from django.core import urlresolvers
+import json
 
 
 # Create your views here.
@@ -36,3 +37,8 @@ def add(request, a, b):
 def reverse(request):
     u = urlresolvers.reverse(add, args=(12, 23,))
     return HttpResponseRedirect(u)
+
+
+def vue(request):
+    data = {'name': 'chen', 'age': 18}
+    return render(request, 'news/vuetest.html', {'u': json.dumps(data)})
