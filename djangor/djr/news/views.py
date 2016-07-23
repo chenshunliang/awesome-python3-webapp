@@ -40,5 +40,5 @@ def reverse(request):
 
 
 def vue(request):
-    data = {'name': 'chen', 'age': 18, 'class': 'red', 'ok': True}
+    data = {'name': 'chen', 'age': 18, 'class': 'red', 'ok': True, 'listUser': ['c', 'd', 'e']}
     return render(request, 'news/vuetest.html', {'u': json.dumps(data)})

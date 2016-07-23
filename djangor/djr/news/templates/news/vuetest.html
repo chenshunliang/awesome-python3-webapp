@@ -20,30 +20,48 @@
     </style>
 </head>
 <body id="vuetest">
+<my-component></my-component>
 <label>姓名：{% templatetag openvariable %} name {% templatetag closevariable %}</label>
 <input type="text" v-model="name" value="">
 <label>年龄：{% templatetag openvariable %} age | capitalize {% templatetag closevariable %}</label>
 <input type="text" v-model="age" value="">
-<div onclick="changeColor()" class="{% templatetag openvariable %} class {% templatetag closevariable %}"></div>
+<div v-on:click="changeColor()" class="{% templatetag openvariable %} class {% templatetag closevariable %}"></div>
 <label v-if="Math.random() > 0.5">abc</label>
 <label v-else>ABC</label>
+<ul>
+    <li v-for="item in listUser">
+        {% templatetag openvariable %} $index {% templatetag closevariable %} -- {% templatetag openvariable %} item
+        {%templatetag closevariable %}
+    </li>
+</ul>
 </body>
 </html>
 <script type="application/javascript">
-    var da = JSON.parse('{{ u|safe }}');
-    var vm = new Vue({
-        data: da,
-        el: '#vuetest',
-        computed: {
-            age: function () {
-                return parseInt(this.name) + 1
+    $(function () {
+        var da = JSON.parse('{{ u|safe }}');
+
+        var myComponent = Vue.extend({
+            template: '<div>我是自定义组件</div>'
+        });
+
+        Vue.component('my-component', myComponent);
+
+        var vm = new Vue({
+            data: da,
+            el: '#vuetest',
+            computed: {
+                age: function () {
+                    return parseInt(this.name) + 1;
+                }
+            },
+            methods: {
+                changeColor: function (event) {
+                    if (vm.class == 'red')
+                        vm.class = 'yellow';
+                    else
+                        vm.class = 'red';
+                }
             }
-        }
-    });
-    function changeColor() {
-        if (vm.class == 'red')
-            vm.class = 'yellow'
-        else
-            vm.class = 'red'
-    }
+        });
+    })
 </script>
