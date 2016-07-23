@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from .models import Column, Article
+from django.core import urlresolvers
+import json
 
 
 # Create your views here.
@@ -25,3 +27,18 @@ def add_info(request):
 
             article.column.add(c)
     return HttpResponse(str('OK'))
+
+
+def add(request, a, b):
+    return JsonResponse({'a': a, 'b': b, 'a+b=': int(a) + int(b)}, safe=False)
+
+
+# 内部跳转
+def reverse(request):
+    u = urlresolvers.reverse(add, args=(12, 23,))
+    return HttpResponseRedirect(u)
+
+
+def vue(request):
+    data = {'name': 'chen', 'age': 18, 'class': 'red', 'ok': True}
+    return render(request, 'news/vuetest.html', {'u': json.dumps(data)})

@@ -30,7 +30,7 @@ from dtest.admin import admin as dadmin
 urlpatterns = [
     url(r'^homeeee/$', test_view.home, name='home2'),
     url(r'^add/$', test_view.add),
-    url(r'^add/(\d+)/(\d+)$', test_view.add2, name='add2'),
+    # url(r'^add/(\d+)/(\d+)$', test_view.add2, name='add2'),
     url(r'^admin/', include(nadmin.site.urls)),
     # url(r'^dtest/admin/', include(dadmin.site.urls)),
     url(r'^create/(\w+)/(\d+)$', test_view.create_peo),
@@ -39,4 +39,8 @@ urlpatterns = [
     # url(r'^accounts/', include('users.urls')),
     url(r'^get_json/$', test_view.ajax_json),
     url(r'^add_info/$', new_view.add_info),
+    # 捕捉值参数
+    url(r'^add/(?P<a>\d+)/(?P<b>\d+)$', new_view.add),
+    url(r'^r$', new_view.reverse),
+    url(r'^testvue$', new_view.vue),
 ]

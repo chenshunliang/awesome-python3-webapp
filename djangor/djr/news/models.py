@@ -9,7 +9,7 @@ from django.utils.encoding import python_2_unicode_compatible
 @python_2_unicode_compatible
 class Column(models.Model):
     name = models.CharField('栏目名称', max_length=20)
-    slug = models.CharField('栏目网址', max_length=200, db_index=True)
+    slug = models.CharField('栏目网址', max_length=200, unique=True)
     infro = models.TextField('栏目简介', default='')
 
     def __str__(self):
