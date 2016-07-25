@@ -43,4 +43,5 @@ urlpatterns = [
     url(r'^add/(?P<a>\d+)/(?P<b>\d+)$', new_view.add),
     url(r'^r$', new_view.reverse),
     url(r'^testvue$', new_view.vue),
+    url(r'^ttt$', new_view.t),
 ]

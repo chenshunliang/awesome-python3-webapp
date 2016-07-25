@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sea test</title>
+    <script src="../../static/js/sea-debug.js"></script>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    seajs.config({
+        alias: {
+            'stest': 'http://127.0.0.1:8000/static/js/stest.js',
+            'sss': 'http://127.0.0.1:8000/static/js/stb.js'
+        }
+    });
+
+    seajs.use(['stest', 'sss'], function (s, t) {
+        s.sayHello()
+        t.sayHello()
+    })
+</script>
