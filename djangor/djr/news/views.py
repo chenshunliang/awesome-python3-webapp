@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from .models import Column, Article
 from django.core import urlresolvers
 import json
+from jinja2 import Environment, PackageLoader
 
 
 # Create your views here.
@@ -46,3 +47,9 @@ def vue(request):
 
 def t(request):
     return render(request, 'news/seatest.html')
+
+
+def jj(request):
+    env = Environment(loader=PackageLoader('news', 'templates/news'))
+    template = env.get_template('jj.html')
+    return HttpResponse(template.render(the='aaaaa'))
