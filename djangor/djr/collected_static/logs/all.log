@@ -1,0 +1,482 @@
+2016-08-02 01:49:24,620 [Dummy-1:123145307557888] [django.db.backends:90] [DEBUG]- (0.005) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2016-08-02 01:49:24,623 [Dummy-1:123145307557888] [django.db.backends:90] [DEBUG]- (0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+2016-08-02 01:49:35,483 [Thread-2:123145312813056] [django:17] [INFO]- 异常捕获
+2016-08-02 01:49:35,484 [Thread-2:123145312813056] [django.server:131] [INFO]- "GET /add/ HTTP/1.1" 200 306
+2016-08-02 02:15:09,941 [Dummy-1:123145307557888] [django.db.backends:90] [DEBUG]- (0.007) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2016-08-02 02:15:09,944 [Dummy-1:123145307557888] [django.db.backends:90] [DEBUG]- (0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+2016-08-02 02:15:24,226 [Thread-2:123145312813056] [django.server:131] [INFO]- "GET /homeeee HTTP/1.1" 301 0
+2016-08-02 02:15:24,257 [Thread-3:123145312813056] [django.db.backends:90] [DEBUG]- (0.008) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2016-08-02 02:15:24.247917' AND "django_session"."session_key" = 'wux7yv5xwa923nzxgiwampq58wfqqbw6'); args=('2016-08-02 02:15:24.247917', 'wux7yv5xwa923nzxgiwampq58wfqqbw6')
+2016-08-02 02:15:24,341 [Thread-3:123145312813056] [django.db.backends:90] [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+2016-08-02 02:15:24,356 [Thread-3:123145312813056] [django.template:929] [DEBUG]- Exception while resolving variable 'form' in template 'dtest/home.html'.
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = current[bit]
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/context.py", line 75, in __getitem__
+    raise KeyError(key)
+KeyError: 'form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [form] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'csrf_token\': <SimpleLazyObject: \'tOswTYD6OxdZEROHW9rFAZ3ImyYA3g03NQNQT1WfjvVQskpqcutPczPGwXZ2wLZb\'>, \'sql_queries\': <function debug.<locals>.<lambda> at 0x1047ed048>, \'user\': <SimpleLazyObject: <User: chen>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x1047e7a58>, \'request\': <WSGIRequest: GET \'/homeeee/\'>, \'debug\': True, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'ERROR\': 40, \'WARNING\': 30, \'SUCCESS\': 25}, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x104722780>, \'now_date\': datetime.datetime(2016, 8, 2, 2, 15, 24, 247427), \'author\': \'chen\'}, {}, {\'colors\': [\'red\', \'white\', \'blue\'], \'string\': \'aaaaa\'}, {\'block\': <Block Node: content. Contents: [<TextNode: \'\\n\\n<strong>我是home页</strong\'>, <Variable Node: string>, <TextNode: \'\\n<ul>\\n    \'>, <For Node: for i in colors, tail_len: 3>, <TextNode: \'\\n</ul>\\n\\n\'>, <django.template.defaulttags.URLNode object at 0x1047e03c8>, <TextNode: \'\\n\\n\'>, <Variable Node: request.path>, <TextNode: \'\\n\\n\'>, <Variable Node: author>, <TextNode: \'\\n\\n\'>, <Variable Node: now_date>, <TextNode: \'\\n\\n<form method="post" act\'>, <django.template.defaulttags.URLNode object at 0x1047e0a58>, <TextNode: \'">\\n    \'>, <django.template.defaulttags.CsrfTokenNode object at 0x1047e0a20>, <TextNode: \'\\n    <input type="text" n\'>, <Variable Node: form>, <TextNode: \'</strong>\\n\'>]>}]'
+2016-08-02 02:15:24,389 [Thread-3:123145312813056] [django.server:131] [INFO]- "GET /homeeee/ HTTP/1.1" 200 10205
+2016-08-02 02:15:24,548 [Thread-5:123145318068224] [django.server:131] [INFO]- "GET /static/debug_toolbar/js/jquery_pre.js HTTP/1.1" 200 136
+2016-08-02 02:15:24,559 [Thread-4:123145312813056] [django.server:131] [INFO]- "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 20293
+2016-08-02 02:15:24,570 [Thread-6:123145318068224] [django.server:131] [INFO]- "GET /static/debug_toolbar/js/jquery_post.js HTTP/1.1" 200 118
+2016-08-02 02:15:24,576 [Thread-7:123145312813056] [django.server:131] [INFO]- "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 12550
+2016-08-02 02:15:24,578 [Thread-8:123145323323392] [django.server:131] [INFO]- "GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 29
+2016-08-02 02:15:24,579 [Thread-9:123145318068224] [django.server:131] [INFO]- "GET /static/debug_toolbar/img/ajax-loader.gif HTTP/1.1" 200 404
+2016-08-02 02:16:09,000 [Thread-10:123145312813056] [django.db.backends:90] [DEBUG]- (0.007) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2016-08-02 02:16:08.990499' AND "django_session"."session_key" = 'wux7yv5xwa923nzxgiwampq58wfqqbw6'); args=('2016-08-02 02:16:08.990499', 'wux7yv5xwa923nzxgiwampq58wfqqbw6')
+2016-08-02 02:16:09,009 [Thread-10:123145312813056] [django.db.backends:90] [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+2016-08-02 02:16:09,020 [Thread-10:123145312813056] [django.template:929] [DEBUG]- Exception while resolving variable 'form' in template 'dtest/home.html'.
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = current[bit]
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/context.py", line 75, in __getitem__
+    raise KeyError(key)
+KeyError: 'form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [form] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'csrf_token\': <SimpleLazyObject: \'3Kuwtjr1qqpxVJZU4dwEMCw1nAWcom2fnMPQtmKaVo7oJcADkyyOociZxZXERR1n\'>, \'sql_queries\': <function debug.<locals>.<lambda> at 0x104957b70>, \'user\': <SimpleLazyObject: <User: chen>>, \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x104948390>, \'request\': <WSGIRequest: GET \'/homeeee/\'>, \'debug\': True, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'INFO\': 20, \'ERROR\': 40, \'WARNING\': 30, \'SUCCESS\': 25}, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x104943518>, \'now_date\': datetime.datetime(2016, 8, 2, 2, 16, 8, 989752), \'author\': \'chen\'}, {}, {\'colors\': [\'red\', \'white\', \'blue\'], \'string\': \'aaaaa\'}, {\'block\': <Block Node: content. Contents: [<TextNode: \'\\n\\n<strong>我是home页</strong\'>, <Variable Node: string>, <TextNode: \'\\n<ul>\\n    \'>, <For Node: for i in colors, tail_len: 3>, <TextNode: \'\\n</ul>\\n\\n\'>, <django.template.defaulttags.URLNode object at 0x10493e3c8>, <TextNode: \'\\n\\n\'>, <Variable Node: request.path>, <TextNode: \'\\n\\n\'>, <Variable Node: author>, <TextNode: \'\\n\\n\'>, <Variable Node: now_date>, <TextNode: \'\\n\\n<form method="post" act\'>, <django.template.defaulttags.URLNode object at 0x10493e358>, <TextNode: \'">\\n    \'>, <django.template.defaulttags.CsrfTokenNode object at 0x10493e588>, <TextNode: \'\\n    <input type="text" n\'>, <Variable Node: form>, <TextNode: \'</strong>\\n\'>]>}]'
+2016-08-02 02:16:09,050 [Thread-10:123145312813056] [django.server:131] [INFO]- "GET /homeeee/ HTTP/1.1" 200 10204
+2016-08-02 02:16:09,243 [Thread-11:123145312813056] [django.server:131] [INFO]- "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+2016-08-02 02:16:39,705 [Thread-12:123145312813056] [django.server:131] [INFO]- "GET /static/debug_toolbar/js/jquery_post.js HTTP/1.1" 200 118
+2016-08-02 02:16:39,718 [Thread-13:123145312813056] [django.server:131] [INFO]- "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 12550
+2016-08-02 02:16:39,748 [Thread-14:123145312813056] [django.server:131] [INFO]- "GET /static/debug_toolbar/img/ajax-loader.gif HTTP/1.1" 200 404
+2016-08-02 02:16:55,527 [Dummy-1:123145307557888] [django.db.backends:90] [DEBUG]- (0.006) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+2016-08-02 02:16:55,533 [Dummy-1:123145307557888] [django.db.backends:90] [DEBUG]- (0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+2016-08-02 02:17:02,503 [Thread-2:123145312813056] [django.db.backends:90] [DEBUG]- (0.002) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'wux7yv5xwa923nzxgiwampq58wfqqbw6' AND "django_session"."expire_date" > '2016-08-02 02:17:02.500635'); args=('wux7yv5xwa923nzxgiwampq58wfqqbw6', '2016-08-02 02:17:02.500635')
+2016-08-02 02:17:02,634 [Thread-2:123145312813056] [django.db.backends:90] [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+2016-08-02 02:17:02,649 [Thread-2:123145312813056] [django.template:929] [DEBUG]- Exception while resolving variable 'form' in template 'dtest/home.html'.
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = current[bit]
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/context.py", line 75, in __getitem__
+    raise KeyError(key)
+KeyError: 'form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [form] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'author\': \'chen\', \'sql_queries\': <function debug.<locals>.<lambda> at 0x1049361e0>, \'request\': <WSGIRequest: GET \'/homeeee/\'>, \'debug\': True, \'csrf_token\': <SimpleLazyObject: \'yeyEz05knJcNEBFWzetyXrf4mJjMnSKESgTYz3otSHUEs4gFPzvIz112w8keQnJM\'>, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x1047fde48>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'WARNING\': 30, \'INFO\': 20, \'ERROR\': 40, \'SUCCESS\': 25}, \'now_date\': datetime.datetime(2016, 8, 2, 2, 17, 2, 499920), \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x104934208>, \'user\': <SimpleLazyObject: <User: chen>>}, {}, {\'string\': \'aaaaa\', \'colors\': [\'red\', \'white\', \'blue\']}, {\'block\': <Block Node: content. Contents: [<TextNode: \'\\n\\n<strong>我是home页</strong\'>, <Variable Node: string>, <TextNode: \'\\n<ul>\\n    \'>, <For Node: for i in colors, tail_len: 3>, <TextNode: \'\\n</ul>\\n\\n\'>, <django.template.defaulttags.URLNode object at 0x104926198>, <TextNode: \'\\n\\n\'>, <Variable Node: request.path>, <TextNode: \'\\n\\n\'>, <Variable Node: author>, <TextNode: \'\\n\\n\'>, <Variable Node: now_date>, <TextNode: \'\\n\\n<form method="post" act\'>, <django.template.defaulttags.URLNode object at 0x10492a1d0>, <TextNode: \'">\\n    \'>, <django.template.defaulttags.CsrfTokenNode object at 0x10492a198>, <TextNode: \'\\n    <input type="text" n\'>, <Variable Node: form>, <TextNode: \'</strong>\\n\'>]>}]'
+2016-08-02 02:17:02,690 [Thread-2:123145312813056] [django.server:131] [INFO]- "GET /homeeee/ HTTP/1.1" 200 10189
+2016-08-02 02:17:02,813 [Thread-3:123145318068224] [django.server:131] [INFO]- "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+2016-08-02 02:17:02,815 [Thread-4:123145323323392] [django.server:131] [INFO]- "GET /static/debug_toolbar/js/jquery_pre.js HTTP/1.1" 304 0
+2016-08-02 02:17:02,818 [Thread-5:123145328578560] [django.server:131] [INFO]- "GET /static/debug_toolbar/js/jquery_post.js HTTP/1.1" 304 0
+2016-08-02 02:17:02,820 [Thread-6:123145312813056] [django.server:131] [INFO]- "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+2016-08-02 02:17:02,834 [Thread-7:123145312813056] [django.server:131] [INFO]- "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+2016-08-02 02:17:02,837 [Thread-8:123145318068224] [django.server:131] [INFO]- "GET /static/debug_toolbar/img/ajax-loader.gif HTTP/1.1" 304 0
+2016-08-02 02:17:21,760 [Thread-9:123145312813056] [django.server:131] [INFO]- "GET /__debug__/render_panel/?store_id=b1be90a057084a0f935c775dc94012d2&panel_id=SignalsPanel HTTP/1.1" 200 1597
+2016-08-02 02:17:29,754 [Thread-10:123145312813056] [django.server:131] [INFO]- "GET /__debug__/render_panel/?store_id=b1be90a057084a0f935c775dc94012d2&panel_id=SettingsPanel HTTP/1.1" 200 26335
+2016-08-02 02:18:53,602 [Thread-11:123145312813056] [django.db.backends:90] [DEBUG]- (0.006) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'wux7yv5xwa923nzxgiwampq58wfqqbw6' AND "django_session"."expire_date" > '2016-08-02 02:18:53.595408'); args=('wux7yv5xwa923nzxgiwampq58wfqqbw6', '2016-08-02 02:18:53.595408')
+2016-08-02 02:18:53,610 [Thread-11:123145312813056] [django.db.backends:90] [DEBUG]- (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+2016-08-02 02:18:53,617 [Thread-11:123145312813056] [django.template:929] [DEBUG]- Exception while resolving variable 'form' in template 'dtest/home.html'.
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = current[bit]
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/context.py", line 75, in __getitem__
+    raise KeyError(key)
+KeyError: 'form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [form] in '[{\'True\': True, \'False\': False, \'None\': None}, {\'author\': \'chen\', \'sql_queries\': <function debug.<locals>.<lambda> at 0x104a9e488>, \'request\': <WSGIRequest: GET \'/homeeee/\'>, \'debug\': True, \'csrf_token\': <SimpleLazyObject: \'k9ALyXhaoEc75E294sgp50349qr8kkP3EbV5y0AjTCUYT7DSkNizHAP2jPsANPOb\'>, \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x104a8a4a8>, \'DEFAULT_MESSAGE_LEVELS\': {\'DEBUG\': 10, \'WARNING\': 30, \'INFO\': 20, \'ERROR\': 40, \'SUCCESS\': 25}, \'now_date\': datetime.datetime(2016, 8, 2, 2, 18, 53, 594849), \'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x1047fd1d0>, \'user\': <SimpleLazyObject: <User: chen>>}, {}, {\'string\': \'aaaaa\', \'colors\': [\'red\', \'white\', \'blue\']}, {\'block\': <Block Node: content. Contents: [<TextNode: \'\\n\\n<strong>我是home页</strong\'>, <Variable Node: string>, <TextNode: \'\\n<ul>\\n    \'>, <For Node: for i in colors, tail_len: 3>, <TextNode: \'\\n</ul>\\n\\n\'>, <django.template.defaulttags.URLNode object at 0x104a8e358>, <TextNode: \'\\n\\n\'>, <Variable Node: request.path>, <TextNode: \'\\n\\n\'>, <Variable Node: author>, <TextNode: \'\\n\\n\'>, <Variable Node: now_date>, <TextNode: \'\\n\\n<form method="post" act\'>, <django.template.defaulttags.URLNode object at 0x104a78128>, <TextNode: \'">\\n    \'>, <django.template.defaulttags.CsrfTokenNode object at 0x104a78f60>, <TextNode: \'\\n    <input type="text" n\'>, <Variable Node: form>, <TextNode: \'</strong>\\n\'>]>}]'
+2016-08-02 02:18:53,642 [Thread-11:123145312813056] [django.server:131] [INFO]- "GET /homeeee/ HTTP/1.1" 200 10187
+2016-08-02 02:18:53,757 [Thread-12:123145318068224] [django.server:131] [INFO]- "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+2016-08-02 02:18:53,758 [Thread-13:123145323323392] [django.server:131] [INFO]- "GET /static/debug_toolbar/js/jquery_pre.js HTTP/1.1" 304 0
+2016-08-02 02:18:53,760 [Thread-15:123145333833728] [django.server:131] [INFO]- "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+2016-08-02 02:18:53,760 [Thread-14:123145328578560] [django.server:131] [INFO]- "GET /static/debug_toolbar/js/jquery_post.js HTTP/1.1" 304 0
+2016-08-02 02:18:53,775 [Thread-16:123145312813056] [django.server:131] [INFO]- "GET /static/debug_toolbar/img/ajax-loader.gif HTTP/1.1" 304 0
+2016-08-02 02:18:53,776 [Thread-17:123145318068224] [django.server:131] [INFO]- "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+2016-08-02 02:19:09,393 [Thread-18:123145312813056] [django.server:131] [INFO]- "GET /__debug__/render_panel/?store_id=36c8387a88fa4577a5b207fad3c1f4c7&panel_id=HeadersPanel HTTP/1.1" 200 2913
+2016-08-02 02:19:19,968 [Thread-19:123145312813056] [django.server:131] [INFO]- "GET /__debug__/render_panel/?store_id=36c8387a88fa4577a5b207fad3c1f4c7&panel_id=RequestPanel HTTP/1.1" 200 1950
+2016-08-02 02:19:33,302 [Thread-20:123145312813056] [django.template:929] [DEBUG]- Exception while resolving variable 'starts_trans' in template 'debug_toolbar/panels/sql.html'.
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = current[bit]
+KeyError: 'starts_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'starts_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'starts_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [starts_trans] in '{\'params\': \'["wux7yv5xwa923nzxgiwampq58wfqqbw6", "2016-08-02 02:18:53.595408"]\', \'trace_color\': \'#800000\', \'raw_sql\': \'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)\', \'is_slow\': False, \'width_ratio_relative\': 94.88093360668663, \'duration\': 7.172107696533203, \'form\': <SQLSelectForm bound=False, valid=Unknown, fields=(sql;raw_sql;params;alias;duration;hash)>, \'width_ratio\': 94.88093360668664, \'vendor\': \'unknown\', \'is_select\': True, \'rgb_color\': [256.0, 0, 0], \'alias\': \'default\', \'stop_time\': 1470104333.603409, \'end_offset\': 94.88093360668664, \'start_time\': 1470104333.596237, \'start_offset\': 0, \'stacktrace\': \'<span class="djdt-path">/Volumes/CHENSL/chensl_python/pythonBlog/awesome-python3-webapp/djangor/djr/dtest/</span><span class="djdt-file">views.py</span> in <span class="djdt-func">home</span>(<span class="djdt-lineno">32</span>)\\n  <span class="djdt-code">return render(request, &#39;dtest/home.html&#39;, {&#39;string&#39;: &#39;aaaaa&#39;, &#39;colors&#39;: colorList})</span>\', \'sql\': \'<strong>SELECT</strong> <a class="djDebugUncollapsed djDebugToggle" href="#">&#8226;&#8226;&#8226;</a> <a class="djDebugCollapsed djDebugToggle" href="#">&quot;django_session&quot;.&quot;session_key&quot;, &quot;django_session&quot;.&quot;session_data&quot;, &quot;django_session&quot;.&quot;expire_date&quot;</a> <strong>FROM</strong> &quot;django_session&quot; <strong>WHERE</strong> (&quot;django_session&quot;.&quot;session_key&quot; = &#39;&#39;&#39;wux7yv5xwa923nzxgiwampq58wfqqbw6&#39;&#39;&#39; <strong>AND</strong> &quot;django_session&quot;.&quot;expire_date&quot; &gt; &#39;&#39;&#39;2016-08-02 02:18:53.595408&#39;&#39;&#39;)\', \'template_info\': None}'
+2016-08-02 02:19:33,304 [Thread-20:123145312813056] [django.template:929] [DEBUG]- Exception while resolving variable 'ends_trans' in template 'debug_toolbar/panels/sql.html'.
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = current[bit]
+KeyError: 'ends_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'ends_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'ends_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [ends_trans] in '{\'params\': \'["wux7yv5xwa923nzxgiwampq58wfqqbw6", "2016-08-02 02:18:53.595408"]\', \'trace_color\': \'#800000\', \'raw_sql\': \'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)\', \'is_slow\': False, \'width_ratio_relative\': 94.88093360668663, \'duration\': 7.172107696533203, \'form\': <SQLSelectForm bound=False, valid=Unknown, fields=(sql;raw_sql;params;alias;duration;hash)>, \'width_ratio\': 94.88093360668664, \'vendor\': \'unknown\', \'is_select\': True, \'rgb_color\': [256.0, 0, 0], \'alias\': \'default\', \'stop_time\': 1470104333.603409, \'end_offset\': 94.88093360668664, \'start_time\': 1470104333.596237, \'start_offset\': 0, \'stacktrace\': \'<span class="djdt-path">/Volumes/CHENSL/chensl_python/pythonBlog/awesome-python3-webapp/djangor/djr/dtest/</span><span class="djdt-file">views.py</span> in <span class="djdt-func">home</span>(<span class="djdt-lineno">32</span>)\\n  <span class="djdt-code">return render(request, &#39;dtest/home.html&#39;, {&#39;string&#39;: &#39;aaaaa&#39;, &#39;colors&#39;: colorList})</span>\', \'sql\': \'<strong>SELECT</strong> <a class="djDebugUncollapsed djDebugToggle" href="#">&#8226;&#8226;&#8226;</a> <a class="djDebugCollapsed djDebugToggle" href="#">&quot;django_session&quot;.&quot;session_key&quot;, &quot;django_session&quot;.&quot;session_data&quot;, &quot;django_session&quot;.&quot;expire_date&quot;</a> <strong>FROM</strong> &quot;django_session&quot; <strong>WHERE</strong> (&quot;django_session&quot;.&quot;session_key&quot; = &#39;&#39;&#39;wux7yv5xwa923nzxgiwampq58wfqqbw6&#39;&#39;&#39; <strong>AND</strong> &quot;django_session&quot;.&quot;expire_date&quot; &gt; &#39;&#39;&#39;2016-08-02 02:18:53.595408&#39;&#39;&#39;)\', \'template_info\': None}'
+2016-08-02 02:19:33,307 [Thread-20:123145312813056] [django.template:929] [DEBUG]- Exception while resolving variable 'in_trans' in template 'debug_toolbar/panels/sql.html'.
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = current[bit]
+KeyError: 'in_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'in_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'in_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [in_trans] in '{\'params\': \'["wux7yv5xwa923nzxgiwampq58wfqqbw6", "2016-08-02 02:18:53.595408"]\', \'trace_color\': \'#800000\', \'raw_sql\': \'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)\', \'is_slow\': False, \'width_ratio_relative\': 94.88093360668663, \'duration\': 7.172107696533203, \'form\': <SQLSelectForm bound=False, valid=Unknown, fields=(sql;raw_sql;params;alias;duration;hash)>, \'width_ratio\': 94.88093360668664, \'vendor\': \'unknown\', \'is_select\': True, \'rgb_color\': [256.0, 0, 0], \'alias\': \'default\', \'stop_time\': 1470104333.603409, \'end_offset\': 94.88093360668664, \'start_time\': 1470104333.596237, \'start_offset\': 0, \'stacktrace\': \'<span class="djdt-path">/Volumes/CHENSL/chensl_python/pythonBlog/awesome-python3-webapp/djangor/djr/dtest/</span><span class="djdt-file">views.py</span> in <span class="djdt-func">home</span>(<span class="djdt-lineno">32</span>)\\n  <span class="djdt-code">return render(request, &#39;dtest/home.html&#39;, {&#39;string&#39;: &#39;aaaaa&#39;, &#39;colors&#39;: colorList})</span>\', \'sql\': \'<strong>SELECT</strong> <a class="djDebugUncollapsed djDebugToggle" href="#">&#8226;&#8226;&#8226;</a> <a class="djDebugCollapsed djDebugToggle" href="#">&quot;django_session&quot;.&quot;session_key&quot;, &quot;django_session&quot;.&quot;session_data&quot;, &quot;django_session&quot;.&quot;expire_date&quot;</a> <strong>FROM</strong> &quot;django_session&quot; <strong>WHERE</strong> (&quot;django_session&quot;.&quot;session_key&quot; = &#39;&#39;&#39;wux7yv5xwa923nzxgiwampq58wfqqbw6&#39;&#39;&#39; <strong>AND</strong> &quot;django_session&quot;.&quot;expire_date&quot; &gt; &#39;&#39;&#39;2016-08-02 02:18:53.595408&#39;&#39;&#39;)\', \'template_info\': None}'
+2016-08-02 02:19:33,310 [Thread-20:123145312813056] [django.template:929] [DEBUG]- Exception while resolving variable 'duplicate_count' in template 'debug_toolbar/panels/sql.html'.
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = current[bit]
+KeyError: 'duplicate_count'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'duplicate_count'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'duplicate_count'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [duplicate_count] in '{\'params\': \'["wux7yv5xwa923nzxgiwampq58wfqqbw6", "2016-08-02 02:18:53.595408"]\', \'trace_color\': \'#800000\', \'raw_sql\': \'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)\', \'is_slow\': False, \'width_ratio_relative\': 94.88093360668663, \'duration\': 7.172107696533203, \'form\': <SQLSelectForm bound=False, valid=Unknown, fields=(sql;raw_sql;params;alias;duration;hash)>, \'width_ratio\': 94.88093360668664, \'vendor\': \'unknown\', \'is_select\': True, \'rgb_color\': [256.0, 0, 0], \'alias\': \'default\', \'stop_time\': 1470104333.603409, \'end_offset\': 94.88093360668664, \'start_time\': 1470104333.596237, \'start_offset\': 0, \'stacktrace\': \'<span class="djdt-path">/Volumes/CHENSL/chensl_python/pythonBlog/awesome-python3-webapp/djangor/djr/dtest/</span><span class="djdt-file">views.py</span> in <span class="djdt-func">home</span>(<span class="djdt-lineno">32</span>)\\n  <span class="djdt-code">return render(request, &#39;dtest/home.html&#39;, {&#39;string&#39;: &#39;aaaaa&#39;, &#39;colors&#39;: colorList})</span>\', \'sql\': \'<strong>SELECT</strong> <a class="djDebugUncollapsed djDebugToggle" href="#">&#8226;&#8226;&#8226;</a> <a class="djDebugCollapsed djDebugToggle" href="#">&quot;django_session&quot;.&quot;session_key&quot;, &quot;django_session&quot;.&quot;session_data&quot;, &quot;django_session&quot;.&quot;expire_date&quot;</a> <strong>FROM</strong> &quot;django_session&quot; <strong>WHERE</strong> (&quot;django_session&quot;.&quot;session_key&quot; = &#39;&#39;&#39;wux7yv5xwa923nzxgiwampq58wfqqbw6&#39;&#39;&#39; <strong>AND</strong> &quot;django_session&quot;.&quot;expire_date&quot; &gt; &#39;&#39;&#39;2016-08-02 02:18:53.595408&#39;&#39;&#39;)\', \'template_info\': None}'
+2016-08-02 02:19:33,313 [Thread-20:123145312813056] [django.template:929] [DEBUG]- Exception while resolving variable 'iso_level' in template 'debug_toolbar/panels/sql.html'.
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = current[bit]
+KeyError: 'iso_level'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'iso_level'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'iso_level'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [iso_level] in '{\'params\': \'["wux7yv5xwa923nzxgiwampq58wfqqbw6", "2016-08-02 02:18:53.595408"]\', \'trace_color\': \'#800000\', \'raw_sql\': \'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)\', \'is_slow\': False, \'width_ratio_relative\': 94.88093360668663, \'duration\': 7.172107696533203, \'form\': <SQLSelectForm bound=False, valid=False, fields=(sql;raw_sql;params;alias;duration;hash)>, \'width_ratio\': 94.88093360668664, \'vendor\': \'unknown\', \'is_select\': True, \'rgb_color\': [256.0, 0, 0], \'alias\': \'default\', \'stop_time\': 1470104333.603409, \'end_offset\': 94.88093360668664, \'start_time\': 1470104333.596237, \'start_offset\': 0, \'stacktrace\': \'<span class="djdt-path">/Volumes/CHENSL/chensl_python/pythonBlog/awesome-python3-webapp/djangor/djr/dtest/</span><span class="djdt-file">views.py</span> in <span class="djdt-func">home</span>(<span class="djdt-lineno">32</span>)\\n  <span class="djdt-code">return render(request, &#39;dtest/home.html&#39;, {&#39;string&#39;: &#39;aaaaa&#39;, &#39;colors&#39;: colorList})</span>\', \'sql\': \'<strong>SELECT</strong> <a class="djDebugUncollapsed djDebugToggle" href="#">&#8226;&#8226;&#8226;</a> <a class="djDebugCollapsed djDebugToggle" href="#">&quot;django_session&quot;.&quot;session_key&quot;, &quot;django_session&quot;.&quot;session_data&quot;, &quot;django_session&quot;.&quot;expire_date&quot;</a> <strong>FROM</strong> &quot;django_session&quot; <strong>WHERE</strong> (&quot;django_session&quot;.&quot;session_key&quot; = &#39;&#39;&#39;wux7yv5xwa923nzxgiwampq58wfqqbw6&#39;&#39;&#39; <strong>AND</strong> &quot;django_session&quot;.&quot;expire_date&quot; &gt; &#39;&#39;&#39;2016-08-02 02:18:53.595408&#39;&#39;&#39;)\', \'template_info\': None}'
+2016-08-02 02:19:33,314 [Thread-20:123145312813056] [django.template:929] [DEBUG]- Exception while resolving variable 'trans_status' in template 'debug_toolbar/panels/sql.html'.
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = current[bit]
+KeyError: 'trans_status'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'trans_status'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'trans_status'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [trans_status] in '{\'params\': \'["wux7yv5xwa923nzxgiwampq58wfqqbw6", "2016-08-02 02:18:53.595408"]\', \'trace_color\': \'#800000\', \'raw_sql\': \'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)\', \'is_slow\': False, \'width_ratio_relative\': 94.88093360668663, \'duration\': 7.172107696533203, \'form\': <SQLSelectForm bound=False, valid=False, fields=(sql;raw_sql;params;alias;duration;hash)>, \'width_ratio\': 94.88093360668664, \'vendor\': \'unknown\', \'is_select\': True, \'rgb_color\': [256.0, 0, 0], \'alias\': \'default\', \'stop_time\': 1470104333.603409, \'end_offset\': 94.88093360668664, \'start_time\': 1470104333.596237, \'start_offset\': 0, \'stacktrace\': \'<span class="djdt-path">/Volumes/CHENSL/chensl_python/pythonBlog/awesome-python3-webapp/djangor/djr/dtest/</span><span class="djdt-file">views.py</span> in <span class="djdt-func">home</span>(<span class="djdt-lineno">32</span>)\\n  <span class="djdt-code">return render(request, &#39;dtest/home.html&#39;, {&#39;string&#39;: &#39;aaaaa&#39;, &#39;colors&#39;: colorList})</span>\', \'sql\': \'<strong>SELECT</strong> <a class="djDebugUncollapsed djDebugToggle" href="#">&#8226;&#8226;&#8226;</a> <a class="djDebugCollapsed djDebugToggle" href="#">&quot;django_session&quot;.&quot;session_key&quot;, &quot;django_session&quot;.&quot;session_data&quot;, &quot;django_session&quot;.&quot;expire_date&quot;</a> <strong>FROM</strong> &quot;django_session&quot; <strong>WHERE</strong> (&quot;django_session&quot;.&quot;session_key&quot; = &#39;&#39;&#39;wux7yv5xwa923nzxgiwampq58wfqqbw6&#39;&#39;&#39; <strong>AND</strong> &quot;django_session&quot;.&quot;expire_date&quot; &gt; &#39;&#39;&#39;2016-08-02 02:18:53.595408&#39;&#39;&#39;)\', \'template_info\': None}'
+2016-08-02 02:19:33,315 [Thread-20:123145312813056] [django.template:929] [DEBUG]- Exception while resolving variable 'starts_trans' in template 'debug_toolbar/panels/sql.html'.
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = current[bit]
+KeyError: 'starts_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'starts_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'starts_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [starts_trans] in '{\'params\': \'[2]\', \'trace_color\': \'#800000\', \'raw_sql\': \'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s\', \'is_slow\': False, \'width_ratio_relative\': 99.99999999999993, \'duration\': 0.38695335388183594, \'form\': <SQLSelectForm bound=False, valid=Unknown, fields=(sql;raw_sql;params;alias;duration;hash)>, \'width_ratio\': 5.119066393313357, \'vendor\': \'unknown\', \'is_select\': True, \'rgb_color\': [256.0, 0, 0], \'alias\': \'default\', \'stop_time\': 1470104333.610322, \'end_offset\': 100.0, \'start_time\': 1470104333.609935, \'start_offset\': 94.88093360668664, \'stacktrace\': \'<span class="djdt-path">/Volumes/CHENSL/chensl_python/pythonBlog/awesome-python3-webapp/djangor/djr/dtest/</span><span class="djdt-file">views.py</span> in <span class="djdt-func">home</span>(<span class="djdt-lineno">32</span>)\\n  <span class="djdt-code">return render(request, &#39;dtest/home.html&#39;, {&#39;string&#39;: &#39;aaaaa&#39;, &#39;colors&#39;: colorList})</span>\', \'sql\': \'<strong>SELECT</strong> <a class="djDebugUncollapsed djDebugToggle" href="#">&#8226;&#8226;&#8226;</a> <a class="djDebugCollapsed djDebugToggle" href="#">&quot;auth_user&quot;.&quot;id&quot;, &quot;auth_user&quot;.&quot;password&quot;, &quot;auth_user&quot;.&quot;last_login&quot;, &quot;auth_user&quot;.&quot;is_superuser&quot;, &quot;auth_user&quot;.&quot;username&quot;, &quot;auth_user&quot;.&quot;first_name&quot;, &quot;auth_user&quot;.&quot;last_name&quot;, &quot;auth_user&quot;.&quot;email&quot;, &quot;auth_user&quot;.&quot;is_staff&quot;, &quot;auth_user&quot;.&quot;is_active&quot;, &quot;auth_user&quot;.&quot;date_joined&quot;</a> <strong>FROM</strong> &quot;auth_user&quot; <strong>WHERE</strong> &quot;auth_user&quot;.&quot;id&quot; = &#39;2&#39;\', \'template_info\': None}'
+2016-08-02 02:19:33,316 [Thread-20:123145312813056] [django.template:929] [DEBUG]- Exception while resolving variable 'ends_trans' in template 'debug_toolbar/panels/sql.html'.
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = current[bit]
+KeyError: 'ends_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'ends_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'ends_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [ends_trans] in '{\'params\': \'[2]\', \'trace_color\': \'#800000\', \'raw_sql\': \'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s\', \'is_slow\': False, \'width_ratio_relative\': 99.99999999999993, \'duration\': 0.38695335388183594, \'form\': <SQLSelectForm bound=False, valid=Unknown, fields=(sql;raw_sql;params;alias;duration;hash)>, \'width_ratio\': 5.119066393313357, \'vendor\': \'unknown\', \'is_select\': True, \'rgb_color\': [256.0, 0, 0], \'alias\': \'default\', \'stop_time\': 1470104333.610322, \'end_offset\': 100.0, \'start_time\': 1470104333.609935, \'start_offset\': 94.88093360668664, \'stacktrace\': \'<span class="djdt-path">/Volumes/CHENSL/chensl_python/pythonBlog/awesome-python3-webapp/djangor/djr/dtest/</span><span class="djdt-file">views.py</span> in <span class="djdt-func">home</span>(<span class="djdt-lineno">32</span>)\\n  <span class="djdt-code">return render(request, &#39;dtest/home.html&#39;, {&#39;string&#39;: &#39;aaaaa&#39;, &#39;colors&#39;: colorList})</span>\', \'sql\': \'<strong>SELECT</strong> <a class="djDebugUncollapsed djDebugToggle" href="#">&#8226;&#8226;&#8226;</a> <a class="djDebugCollapsed djDebugToggle" href="#">&quot;auth_user&quot;.&quot;id&quot;, &quot;auth_user&quot;.&quot;password&quot;, &quot;auth_user&quot;.&quot;last_login&quot;, &quot;auth_user&quot;.&quot;is_superuser&quot;, &quot;auth_user&quot;.&quot;username&quot;, &quot;auth_user&quot;.&quot;first_name&quot;, &quot;auth_user&quot;.&quot;last_name&quot;, &quot;auth_user&quot;.&quot;email&quot;, &quot;auth_user&quot;.&quot;is_staff&quot;, &quot;auth_user&quot;.&quot;is_active&quot;, &quot;auth_user&quot;.&quot;date_joined&quot;</a> <strong>FROM</strong> &quot;auth_user&quot; <strong>WHERE</strong> &quot;auth_user&quot;.&quot;id&quot; = &#39;2&#39;\', \'template_info\': None}'
+2016-08-02 02:19:33,317 [Thread-20:123145312813056] [django.template:929] [DEBUG]- Exception while resolving variable 'in_trans' in template 'debug_toolbar/panels/sql.html'.
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = current[bit]
+KeyError: 'in_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'in_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'in_trans'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [in_trans] in '{\'params\': \'[2]\', \'trace_color\': \'#800000\', \'raw_sql\': \'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s\', \'is_slow\': False, \'width_ratio_relative\': 99.99999999999993, \'duration\': 0.38695335388183594, \'form\': <SQLSelectForm bound=False, valid=Unknown, fields=(sql;raw_sql;params;alias;duration;hash)>, \'width_ratio\': 5.119066393313357, \'vendor\': \'unknown\', \'is_select\': True, \'rgb_color\': [256.0, 0, 0], \'alias\': \'default\', \'stop_time\': 1470104333.610322, \'end_offset\': 100.0, \'start_time\': 1470104333.609935, \'start_offset\': 94.88093360668664, \'stacktrace\': \'<span class="djdt-path">/Volumes/CHENSL/chensl_python/pythonBlog/awesome-python3-webapp/djangor/djr/dtest/</span><span class="djdt-file">views.py</span> in <span class="djdt-func">home</span>(<span class="djdt-lineno">32</span>)\\n  <span class="djdt-code">return render(request, &#39;dtest/home.html&#39;, {&#39;string&#39;: &#39;aaaaa&#39;, &#39;colors&#39;: colorList})</span>\', \'sql\': \'<strong>SELECT</strong> <a class="djDebugUncollapsed djDebugToggle" href="#">&#8226;&#8226;&#8226;</a> <a class="djDebugCollapsed djDebugToggle" href="#">&quot;auth_user&quot;.&quot;id&quot;, &quot;auth_user&quot;.&quot;password&quot;, &quot;auth_user&quot;.&quot;last_login&quot;, &quot;auth_user&quot;.&quot;is_superuser&quot;, &quot;auth_user&quot;.&quot;username&quot;, &quot;auth_user&quot;.&quot;first_name&quot;, &quot;auth_user&quot;.&quot;last_name&quot;, &quot;auth_user&quot;.&quot;email&quot;, &quot;auth_user&quot;.&quot;is_staff&quot;, &quot;auth_user&quot;.&quot;is_active&quot;, &quot;auth_user&quot;.&quot;date_joined&quot;</a> <strong>FROM</strong> &quot;auth_user&quot; <strong>WHERE</strong> &quot;auth_user&quot;.&quot;id&quot; = &#39;2&#39;\', \'template_info\': None}'
+2016-08-02 02:19:33,318 [Thread-20:123145312813056] [django.template:929] [DEBUG]- Exception while resolving variable 'duplicate_count' in template 'debug_toolbar/panels/sql.html'.
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = current[bit]
+KeyError: 'duplicate_count'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'duplicate_count'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'duplicate_count'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [duplicate_count] in '{\'params\': \'[2]\', \'trace_color\': \'#800000\', \'raw_sql\': \'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s\', \'is_slow\': False, \'width_ratio_relative\': 99.99999999999993, \'duration\': 0.38695335388183594, \'form\': <SQLSelectForm bound=False, valid=Unknown, fields=(sql;raw_sql;params;alias;duration;hash)>, \'width_ratio\': 5.119066393313357, \'vendor\': \'unknown\', \'is_select\': True, \'rgb_color\': [256.0, 0, 0], \'alias\': \'default\', \'stop_time\': 1470104333.610322, \'end_offset\': 100.0, \'start_time\': 1470104333.609935, \'start_offset\': 94.88093360668664, \'stacktrace\': \'<span class="djdt-path">/Volumes/CHENSL/chensl_python/pythonBlog/awesome-python3-webapp/djangor/djr/dtest/</span><span class="djdt-file">views.py</span> in <span class="djdt-func">home</span>(<span class="djdt-lineno">32</span>)\\n  <span class="djdt-code">return render(request, &#39;dtest/home.html&#39;, {&#39;string&#39;: &#39;aaaaa&#39;, &#39;colors&#39;: colorList})</span>\', \'sql\': \'<strong>SELECT</strong> <a class="djDebugUncollapsed djDebugToggle" href="#">&#8226;&#8226;&#8226;</a> <a class="djDebugCollapsed djDebugToggle" href="#">&quot;auth_user&quot;.&quot;id&quot;, &quot;auth_user&quot;.&quot;password&quot;, &quot;auth_user&quot;.&quot;last_login&quot;, &quot;auth_user&quot;.&quot;is_superuser&quot;, &quot;auth_user&quot;.&quot;username&quot;, &quot;auth_user&quot;.&quot;first_name&quot;, &quot;auth_user&quot;.&quot;last_name&quot;, &quot;auth_user&quot;.&quot;email&quot;, &quot;auth_user&quot;.&quot;is_staff&quot;, &quot;auth_user&quot;.&quot;is_active&quot;, &quot;auth_user&quot;.&quot;date_joined&quot;</a> <strong>FROM</strong> &quot;auth_user&quot; <strong>WHERE</strong> &quot;auth_user&quot;.&quot;id&quot; = &#39;2&#39;\', \'template_info\': None}'
+2016-08-02 02:19:33,321 [Thread-20:123145312813056] [django.template:929] [DEBUG]- Exception while resolving variable 'iso_level' in template 'debug_toolbar/panels/sql.html'.
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = current[bit]
+KeyError: 'iso_level'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'iso_level'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'iso_level'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [iso_level] in '{\'params\': \'[2]\', \'trace_color\': \'#800000\', \'raw_sql\': \'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s\', \'is_slow\': False, \'width_ratio_relative\': 99.99999999999993, \'duration\': 0.38695335388183594, \'form\': <SQLSelectForm bound=False, valid=False, fields=(sql;raw_sql;params;alias;duration;hash)>, \'width_ratio\': 5.119066393313357, \'vendor\': \'unknown\', \'is_select\': True, \'rgb_color\': [256.0, 0, 0], \'alias\': \'default\', \'stop_time\': 1470104333.610322, \'end_offset\': 100.0, \'start_time\': 1470104333.609935, \'start_offset\': 94.88093360668664, \'stacktrace\': \'<span class="djdt-path">/Volumes/CHENSL/chensl_python/pythonBlog/awesome-python3-webapp/djangor/djr/dtest/</span><span class="djdt-file">views.py</span> in <span class="djdt-func">home</span>(<span class="djdt-lineno">32</span>)\\n  <span class="djdt-code">return render(request, &#39;dtest/home.html&#39;, {&#39;string&#39;: &#39;aaaaa&#39;, &#39;colors&#39;: colorList})</span>\', \'sql\': \'<strong>SELECT</strong> <a class="djDebugUncollapsed djDebugToggle" href="#">&#8226;&#8226;&#8226;</a> <a class="djDebugCollapsed djDebugToggle" href="#">&quot;auth_user&quot;.&quot;id&quot;, &quot;auth_user&quot;.&quot;password&quot;, &quot;auth_user&quot;.&quot;last_login&quot;, &quot;auth_user&quot;.&quot;is_superuser&quot;, &quot;auth_user&quot;.&quot;username&quot;, &quot;auth_user&quot;.&quot;first_name&quot;, &quot;auth_user&quot;.&quot;last_name&quot;, &quot;auth_user&quot;.&quot;email&quot;, &quot;auth_user&quot;.&quot;is_staff&quot;, &quot;auth_user&quot;.&quot;is_active&quot;, &quot;auth_user&quot;.&quot;date_joined&quot;</a> <strong>FROM</strong> &quot;auth_user&quot; <strong>WHERE</strong> &quot;auth_user&quot;.&quot;id&quot; = &#39;2&#39;\', \'template_info\': None}'
+2016-08-02 02:19:33,322 [Thread-20:123145312813056] [django.template:929] [DEBUG]- Exception while resolving variable 'trans_status' in template 'debug_toolbar/panels/sql.html'.
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = current[bit]
+KeyError: 'trans_status'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'trans_status'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 900, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'trans_status'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chenshunliang/Library/Python/3.5/lib/python/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [trans_status] in '{\'params\': \'[2]\', \'trace_color\': \'#800000\', \'raw_sql\': \'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s\', \'is_slow\': False, \'width_ratio_relative\': 99.99999999999993, \'duration\': 0.38695335388183594, \'form\': <SQLSelectForm bound=False, valid=False, fields=(sql;raw_sql;params;alias;duration;hash)>, \'width_ratio\': 5.119066393313357, \'vendor\': \'unknown\', \'is_select\': True, \'rgb_color\': [256.0, 0, 0], \'alias\': \'default\', \'stop_time\': 1470104333.610322, \'end_offset\': 100.0, \'start_time\': 1470104333.609935, \'start_offset\': 94.88093360668664, \'stacktrace\': \'<span class="djdt-path">/Volumes/CHENSL/chensl_python/pythonBlog/awesome-python3-webapp/djangor/djr/dtest/</span><span class="djdt-file">views.py</span> in <span class="djdt-func">home</span>(<span class="djdt-lineno">32</span>)\\n  <span class="djdt-code">return render(request, &#39;dtest/home.html&#39;, {&#39;string&#39;: &#39;aaaaa&#39;, &#39;colors&#39;: colorList})</span>\', \'sql\': \'<strong>SELECT</strong> <a class="djDebugUncollapsed djDebugToggle" href="#">&#8226;&#8226;&#8226;</a> <a class="djDebugCollapsed djDebugToggle" href="#">&quot;auth_user&quot;.&quot;id&quot;, &quot;auth_user&quot;.&quot;password&quot;, &quot;auth_user&quot;.&quot;last_login&quot;, &quot;auth_user&quot;.&quot;is_superuser&quot;, &quot;auth_user&quot;.&quot;username&quot;, &quot;auth_user&quot;.&quot;first_name&quot;, &quot;auth_user&quot;.&quot;last_name&quot;, &quot;auth_user&quot;.&quot;email&quot;, &quot;auth_user&quot;.&quot;is_staff&quot;, &quot;auth_user&quot;.&quot;is_active&quot;, &quot;auth_user&quot;.&quot;date_joined&quot;</a> <strong>FROM</strong> &quot;auth_user&quot; <strong>WHERE</strong> &quot;auth_user&quot;.&quot;id&quot; = &#39;2&#39;\', \'template_info\': None}'
+2016-08-02 02:19:33,324 [Thread-20:123145312813056] [django.server:131] [INFO]- "GET /__debug__/render_panel/?store_id=36c8387a88fa4577a5b207fad3c1f4c7&panel_id=SQLPanel HTTP/1.1" 200 8265
+2016-08-02 02:19:33,336 [Thread-21:123145312813056] [django.server:131] [INFO]- "GET /static/debug_toolbar/js/toolbar.sql.js?_=1470104337536 HTTP/1.1" 200 353
